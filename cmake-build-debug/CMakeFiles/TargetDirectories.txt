@@ -1,0 +1,3 @@
+C:/Users/nadav/OneDrive/Desktop/Projects/CLab/Maabada-Mmn23/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/nadav/OneDrive/Desktop/Projects/CLab/Maabada-Mmn23/cmake-build-debug/CMakeFiles/Maabada_Mmn23.dir
+C:/Users/nadav/OneDrive/Desktop/Projects/CLab/Maabada-Mmn23/cmake-build-debug/CMakeFiles/rebuild_cache.dir
