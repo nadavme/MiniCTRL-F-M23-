@@ -5,10 +5,14 @@
 #ifndef MAABADA_MMN23_HASH_H
 #define MAABADA_MMN23_HASH_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "errno.h"
+#include <string.h>
 
 typedef struct Node
 {
-    int appearences;
+    int appearances;
     char *fileName;
     struct Node *next;
 } Node, *ptr2Node;
@@ -46,6 +50,18 @@ ptr2Node  findFile(char *fileName, ptr2LinkedList currLinkedList);
  * @return
  */
 ptr2LinkedList createLinkedList();
+
+void readTheInput(char *argv[], int argc, ptr2LinkedList hashTable[]);
+
+int initiateHashTable(ptr2LinkedList hashTable[]);
+
+
+
+
+void printAppearances(ptr2LinkedList hashTable[]);
+
+
+void checkMemoryAllocation(void *string);
 
 
 #endif //MAABADA_MMN23_HASH_H
