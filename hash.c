@@ -120,6 +120,7 @@ void printAppearances(ptr2LinkedList hashTable[])
             }
         }
         printf("\n");
+        freeNodeMemory(node);
     }
 }
 
