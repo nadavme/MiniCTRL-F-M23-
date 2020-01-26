@@ -1,6 +1,3 @@
-//
-// Created by nadav on 20/01/2020.
-//
 
 #ifndef MAABADA_MMN23_HASH_H
 #define MAABADA_MMN23_HASH_H
@@ -47,21 +44,29 @@ ptr2Node  findFile(char *fileName, ptr2LinkedList currLinkedList);
 
 /*!
  *
- * @return
+ * @param argv
+ * @param argc
+ * @param hashTable
  */
-ptr2LinkedList createLinkedList();
-
 void readTheInput(char *argv[], int argc, ptr2LinkedList hashTable[]);
 
+/*!
+ *
+ * @param hashTable
+ * @return
+ */
 int initiateHashTable(ptr2LinkedList hashTable[]);
 
-
-
-
+/*!
+ *
+ * @param hashTable
+ */
 void printAppearances(ptr2LinkedList hashTable[]);
-
-
+/*!
+ *
+ * @param string
+ */
 void checkMemoryAllocation(void *string);
 
 
-#endif //MAABADA_MMN23_HASH_H
+#endif /*MAABADA_MMN23_HASH_H*/

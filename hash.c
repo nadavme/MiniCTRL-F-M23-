@@ -1,6 +1,4 @@
-//
-// Created by nadav on 20/01/2020.
-//
+
 
 #include "hash.h"
 
@@ -19,10 +17,12 @@ int initiateHashTable(ptr2LinkedList hashTable[])
 
 void readTheInput(char *argv[], int argc, ptr2LinkedList hashTable[])
 {
-    initiateHashTable(hashTable);
-    int i =1;
-    FILE *fp = NULL;
+    int i;
+    FILE *fp;
     int temp;
+    i = 1;
+    initiateHashTable(hashTable);
+    fp = NULL;
     while(i < argc +1)
     {
         if(fopen(argv[i], "r"))
@@ -63,7 +63,8 @@ void checkMemoryAllocation(void *string)
 
 ptr2Node createNewNode(char *fileName)
 {
-    ptr2Node newNode = malloc(sizeof(Node));
+    ptr2Node newNode;
+    newNode = malloc(sizeof(Node));
     newNode->fileName = malloc(strlen(fileName) * sizeof(char));
     checkMemoryAllocation(newNode->fileName);
     strcpy(newNode->fileName, fileName);
@@ -81,14 +82,16 @@ void freeNodeMemory(ptr2Node node)
 
 void addNode(ptr2LinkedList currLinkedList, char *fileName)
 {
-    ptr2Node newNode = createNewNode(fileName);
+    ptr2Node newNode;
+    newNode = createNewNode(fileName);
     newNode->next = currLinkedList->head;
     currLinkedList-> head = newNode;
 }
 
 ptr2Node findFile(char *fileName, ptr2LinkedList currLinkedList)
 {
-    ptr2Node requestedNode = currLinkedList->head;
+    ptr2Node requestedNode;
+    requestedNode = currLinkedList->head;
     while (requestedNode != NULL)
     {
         if (strcmp(requestedNode->fileName, fileName) == 0) return requestedNode;
@@ -97,10 +100,6 @@ ptr2Node findFile(char *fileName, ptr2LinkedList currLinkedList)
     return NULL;
 }
 
-//ptr2LinkedList createLinkedList()
-//{
-//    return malloc(sizeof(struct linkedList));
-//}
 
 void printAppearances(ptr2LinkedList hashTable[])
 {
