@@ -115,8 +115,8 @@ void printAppearances(ptr2LinkedList hashTable[])
             {
                 if (node->appearances > 0) printf(" file %s - %d times",
                         node->fileName, node->appearances);
-                if(node->next == NULL)
-                    node = node->next;
+                if(node->next == NULL) break;
+                node = node->next;
             }
         }
         printf("\n");
