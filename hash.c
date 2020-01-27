@@ -1,5 +1,4 @@
 
-
 #include "hash.h"
 
 
@@ -9,7 +8,9 @@ int initiateHashTable(ptr2LinkedList hashTable[])
     int i;
     for (i = 0; i < 29; i++)
     {
-        hashTable[i] = 0;
+        hashTable[i] = malloc(sizeof(struct linkedList));
+        hashTable[i]->head = NULL;
+        hashTable[i]->size = 0;
     }
     return 0;
 }
@@ -22,31 +23,25 @@ void readTheInput(char *argv[], int argc, ptr2LinkedList hashTable[])
     int temp;
     i = 1;
     initiateHashTable(hashTable);
-    fp = NULL;
-    while(i < argc +1)
+    while(i < argc)
     {
-        if(fopen(argv[i], "r"))
+        fp = fopen(argv[i], "r");
+        if (fp == NULL)
         {
-            fp = fopen(argv[i], "r");
-            while((fscanf(fp, "%d", &temp) != EOF))
-                {
-                    if(temp != ' ')
-                        {
-                          if(findFile(argv[i], hashTable[temp - 1]) == NULL)
-                            {
-                                addNode(hashTable[temp - 1], argv[i]);
-                                hashTable[temp - 1]->head->appearances++;
-                            }
-                          else findFile(argv[i], hashTable[temp - 1])->appearances++;
-                        }
-                }
-            fclose(fp);
-            i++;
-        }else
-        {
-            fclose(fp);
-            fprintf(stderr, "𝐶𝑎𝑛𝑛𝑜𝑡 𝑜𝑝𝑒𝑛 𝑡ℎ𝑒 𝑓𝑖𝑙𝑒");
+            fprintf(stderr, "File error.");
+            exit(EXIT_FAILURE);
         }
+        while((fscanf(fp, "%d", &temp) != EOF))
+        {
+            if(findFile(argv[i], hashTable[temp]) == NULL)
+            {
+                addNode(hashTable[temp], argv[i]);
+                hashTable[temp]->head->appearances++;
+            }
+            else findFile(argv[i], hashTable[temp])->appearances++;
+        }
+        fclose(fp);
+        i++;
     }
 }
 
@@ -68,6 +63,7 @@ ptr2Node createNewNode(char *fileName)
     newNode->fileName = malloc(strlen(fileName) * sizeof(char));
     checkMemoryAllocation(newNode->fileName);
     strcpy(newNode->fileName, fileName);
+    newNode->next = 0;
     newNode->appearances = 0;
     return newNode;
 }
@@ -86,11 +82,12 @@ void addNode(ptr2LinkedList currLinkedList, char *fileName)
     newNode = createNewNode(fileName);
     newNode->next = currLinkedList->head;
     currLinkedList-> head = newNode;
+    currLinkedList->size++;
 }
 
 ptr2Node findFile(char *fileName, ptr2LinkedList currLinkedList)
 {
-    ptr2Node requestedNode;
+    ptr2Node requestedNode = NULL;
     requestedNode = currLinkedList->head;
     while (requestedNode != NULL)
     {
@@ -115,12 +112,12 @@ void printAppearances(ptr2LinkedList hashTable[])
             {
                 if (node->appearances > 0) printf(" file %s - %d times",
                         node->fileName, node->appearances);
-                if(node->next == NULL) break;
                 node = node->next;
             }
+            printf("\n");
         }
-        printf("\n");
         freeNodeMemory(node);
+        free(hashTable[i]);
     }
 }
 
@@ -130,7 +127,6 @@ int main(int argc, char * argv[])
     ptr2LinkedList hashTable[29];
     readTheInput(argv, argc, hashTable);
     printAppearances(hashTable);
-
 
     return 0;
 }
