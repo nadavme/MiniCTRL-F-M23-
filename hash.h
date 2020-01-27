@@ -8,7 +8,7 @@
 #include <string.h>
 
 /*!
- *
+ * The typedef defines a node, an item of linked list.
  */
 typedef struct Node
 {
@@ -18,7 +18,7 @@ typedef struct Node
 } Node, *ptr2Node;
 
 /*!
- *
+ * The typedef defines a linked list which is a chain of nodes.
  */
 typedef struct linkedList
 {
@@ -69,7 +69,7 @@ int initiateHashTable(ptr2LinkedList hashTable[]);
  */
 void printAppearances(ptr2LinkedList hashTable[]);
 /*!
- *
+ * The function checks if the allocation was valid.
  * @param string
  */
 void checkMemoryAllocation(void *string);

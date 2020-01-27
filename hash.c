@@ -9,6 +9,7 @@ int initiateHashTable(ptr2LinkedList hashTable[])
     for (i = 0; i < 29; i++)
     {
         hashTable[i] = malloc(sizeof(struct linkedList));
+        checkMemoryAllocation(hashTable[i]);
         hashTable[i]->head = NULL;
         hashTable[i]->size = 0;
     }

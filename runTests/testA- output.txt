@@ -1,0 +1,8 @@
+3 appears in file dat4.txt - 1 times file dat3.txt - 1 times file dat2.txt - 1 times file dat1.txt - 1 times                                                                                    4 appears in file dat4.txt - 1 times file dat3.txt - 1 times file dat2.txt - 1 times file dat1.txt - 1 times
+10 appears in file dat4.txt - 1 times file dat3.txt - 1 times file dat2.txt - 1 times file dat1.txt - 1 times
+11 appears in file dat4.txt - 2 times file dat3.txt - 2 times file dat2.txt - 2 times file dat1.txt - 2 times
+12 appears in file dat4.txt - 2 times file dat3.txt - 2 times file dat2.txt - 2 times file dat1.txt - 2 times
+14 appears in file dat4.txt - 1 times file dat3.txt - 1 times file dat2.txt - 1 times file dat1.txt - 1 times
+20 appears in file dat4.txt - 2 times file dat3.txt - 2 times file dat2.txt - 2 times file dat1.txt - 2 times
+21 appears in file dat4.txt - 1 times file dat3.txt - 1 times file dat2.txt - 1 times file dat1.txt - 1 times
+23 appears in file dat4.txt - 1 times file dat3.txt - 1 times file dat2.txt - 1 times file dat1.txt - 1 times                                                                             
